@@ -103,18 +103,15 @@ app.use("/", userRoute);
 app.use("/", profile);
 
 
-app.use((err, req, res, next) => {
-    console.log(err);
+app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page Not Found"));
-
 });
 
 app.use((err, req, res, next) => {
     console.log(err);
-    let { status = 500, message = "Something was Wrong!!" } = err;
-    res.render("places/error.ejs", { message });
+    let { status = 500, message = "Something went wrong!" } = err;
+    res.status(status).render("places/error.ejs", { message });
 });
-
 
 
 app.listen(port, () => {
