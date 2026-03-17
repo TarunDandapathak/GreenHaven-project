@@ -19,7 +19,7 @@ const profile = require("./route/profile.js");
 const MongoStore = require("connect-mongo").default;
 
 
-
+const port=8080;
 const MONGO_URL = process.env.MONGO_URL;
 //connect mongodb 
 main()
@@ -117,6 +117,6 @@ app.use((err, req, res, next) => {
 
 
 
-app.listen(8080, () => {
+app.listen(port, () => {
     console.log("server was rinning on port 8080");
 });
