@@ -1,0 +1,48 @@
+<% layout("/layouts/boilarplate") -%>
+
+    <body>
+        <form action="/places/new" class="needs-validation" novalidate method="post" enctype="multipart/form-data">
+            <h3>Create a New Listing</h3>
+            <div class="row">
+                <div class="cal-8 ">
+                    <div class="mb-3 ">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control" id="title"
+                            placeholder="Enter Title" required>
+                        <div class="valid-feedback">
+                            Title Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="description" class="form-control" id="description"
+                            required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" name="image" class="form-control" id="image"
+                            placeholder="Enter Image ">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="price">Price</label>
+                        <input type="number" name="price" class="form-control" id="price" placeholder="2000"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="location">Location</label>
+                        <input type="text" name="location" class="form-control" id="location"
+                            placeholder="Mumbai" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="country">Country</label>
+                        <input type="text" name="country" class="form-control" id="country"
+                            placeholder="India" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-new-form">Add</button>
+                </div>
+            </div>
+        </form>
+        <br><br>
+    </body>
+
+    </html>

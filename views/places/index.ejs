@@ -1,0 +1,210 @@
+<% layout("/layouts/boilarplate") -%>
+    <style>
+        .filters {
+            display: flex;
+            overflow: hidden;
+
+
+        }
+
+        .filter {
+            margin-right: 1.9rem;
+            text-align: center;
+            opacity: 0.7;
+            margin-top: 17px;
+        }
+
+        .filter:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .cart-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 46px;
+            height: 46px;
+            /* background-color: #ff4d4d; */
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            font-size: 18px;
+            top: 8px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+
+
+
+        .cart-icon i {
+            top: 14px;
+            position: absolute;
+            right: 7px;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .yellow {
+            color: rgb(223, 146, 159) !important;
+        }
+
+        .white {
+            color: white;
+        }
+    </style>
+
+    <body>
+        <div class="mobile-search">
+            <form class="d-flex justify-content-center" action="/places/search" method="post">
+                <input class="form-control me-2 search" type="search" placeholder="Search destinations" name="search">
+                <button class="btn btn-outline-success">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+        <!-- <form action="http://localhost:8080/places/new">
+        <button>Create</button>
+    </form> -->
+        <section class="mypagesection">
+            <div class="typing-container">
+                <h4 class="responsive-typewriter">
+                    HI <span class="gradient-text">
+                        <% if (currUser) { %>
+                            <%= currUser.username.split(" ")[0]%> 
+                            <% } %>
+                        </span>, WELCOME!
+                    </h4>
+                </div>
+
+        </section>
+        <div class=" filters ">
+            <div class=" filter">
+                                <div><i class="fa-solid fa-fire"></i></div>
+                                <p>Tranding</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <p>Room</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-building"></i></div>
+                <p>City </p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-person-swimming"></i></div>
+                <p>Amazing Pools</p>
+            </div>
+
+
+            <div class="filter">
+                <div><i class="fa-solid fa-tent"></i></div>
+                <p>Camping</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-cow"></i></div>
+                <p>Farms</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-snowman"></i></div>
+                <p>Snow</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-house"></i></div>
+                <p>Villas</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-house-chimney"></i></div>
+                <p>Cabins</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-building"></i></div>
+                <p>Cabins</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                <p>Beach</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain"></i></div>
+                <p>Mountains</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-tree"></i></div>
+                <p>Forest</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-gem"></i></div>
+                <p>Luxury</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-water"></i></div>
+                <p>Lake View</p>
+            </div>
+
+            <div class="filter">
+                <div><i class="fa-solid fa-star"></i></div>
+                <p>Top Rated</p>
+            </div>
+
+            </div>
+
+            <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+                <% for( let index=0; index < allData.length ; index++ ) { %>
+                    <div class="card main-card" style="width: 18rem;">
+
+                        <form action="/places/<%= allData[index]._id %>/cart" method="get">
+                            <span class="cart-icon">
+                                <button type="submit">
+                                    <% if (currUser && currUser.cart) { %>
+                                        <% // Check if the place is in the user's cart const
+                                            inCart=currUser.cart.some(item=> item.place.equals(allData[index]._id));
+                                            %>
+
+                                            <% if (inCart) { %>
+                                                <i class="fa-solid fa-cart-arrow-down yellow"></i>
+                                                <% } else { %>
+                                                    <i class="fa-solid fa-cart-arrow-down white"></i>
+                                                    <% } %>
+
+                                                        <% } else { %>
+                                                            <!-- User not logged in: show default icon -->
+                                                            <i class="fa-solid fa-cart-arrow-down white"></i>
+                                                            <% } %>
+                                </button>
+                            </span>
+                        </form>
+                        <a href="/places/<%=allData[index]._id%>">
+                            <img src="<%= allData[index].image.url %>" class="card-img-top" alt="room-image"
+                                style="height: 20rem;">
+                            <div class=" card-body">
+                                <b>
+                                    <p class="card-text">
+                                        <strong>
+                                            <%= allData[index].title %>
+                                        </strong>
+                                    </p>
+                                </b>
+                                <p> &#8377;<%= allData[index].price.toLocaleString() %>/night</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <% } %>
+
+            </div>
+
+    </body>

@@ -1,0 +1,159 @@
+<% layout("/layouts/boilarplate") -%>
+
+    <body>
+        <div class="row">
+            <div class="card col-md-8 ">
+                <a href="/places" class="col-6 back-page "><i class="fa-solid fa-circle-left"></i>Previous Page</a>
+                <h2 class="card-title ">
+                    <%= data.title %>
+                </h2>
+                <img src="<%= data.image.url %>" class="card-img-top  show-img " alt="...">
+
+                <div class="card-body mt-3">
+                    <strong>
+                        <h4 class="card-text">
+                            <b><i>
+                                    <i class="fa-solid fa-user"></i>
+                                    <%= data.owner?.username || "Unknown" %>
+
+                                </i></b>
+                        </h4>
+                    </strong>
+
+                    <strong>
+                        <p class="card-text mt-2">
+                            <i class="fa-solid fa-book"></i>
+                            <%= data.description %>
+                        </p>
+                    </strong>
+
+                    <p class="card-text mt-2"><i class="fa-solid fa-hand-holding-dollar"></i> &#8377;<%=
+                            data.price.toLocaleString() %>/night</p>
+
+                    <p class="card-text mt-2">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <%= data.location %>
+                    </p>
+                    <p class="card-text mt-2">
+                        <i class="fa-solid fa-globe"></i>
+                        <%= data.country %>
+                    </p>
+                    <% if (currUser && data.owner.id==currUser.id) { %>
+
+                        <a href="/places/<%= data._id %>/edit" class="btn btn-dark " style="color: white;">
+                            <i class="fa-solid fa-pen-to-square"></i>Edit</a>
+                        <form action="/places/<%= data._id %>/delete?_method=DELETE" method="post"
+                            style="display: inline;">
+                            <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>Delete</button><br><br>
+                        </form>
+                        <% } %>
+                            <form action="/places/<%= data.id %>/book" method="get" class="mt-4 d-flex flex-wrap">
+                                <div>
+                                    <label for="checkInDate" class="form-label">Check In: </label>
+                                    <input type="date" name="checkInDate" id="checkInDate" class="date">
+                                </div>
+                                <div>
+                                    <label for="checkOutDate" class="form-label">Check Out:</label>
+                                    <input type="date" name="checkOutDate" id="checkOutDate" class="date">
+
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary  date-btn">Book Now</button>
+                                </div>
+                            </form>
+                            <br><br>
+                            <!-- <form action="/<%=data.id %>/pay">
+                                <button class="btn btn-primary" >Book Now</button>
+                            </form> -->
+
+                            <br><br>
+
+
+                </div>
+                <hr>
+                <% if (currUser) { %>
+
+
+                    <h4>Write a Review</h4>
+                    <form action="/places/<%= data.id %>/reviews" method="post" class="needs-validation" novalidate>
+                        <label for="rating" class="form-label">Rating</label>
+
+                        <fieldset class="starability-slot">
+                            <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1"
+                                checked aria-label="No rating." />
+
+                            <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                            <label for="first-rate1" title="Terrible">1 star</label>
+
+                            <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                            <label for="first-rate2" title="Not good">2 stars</label>
+
+                            <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                            <label for="first-rate3" title="Average">3 stars</label>
+
+                            <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                            <label for="first-rate4" title="Very good">4 stars</label>
+
+                            <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                            <label for="first-rate5" title="Amazing">5 stars</label>
+                        </fieldset>
+                        <label for="comment" class="form-label">Comment</label>
+                        <textarea rows="3" name="review[comment]" class="form-control" id="comment" required></textarea>
+                        <div class="invalid-feedback">
+                            Please add some comments.
+                        </div>
+
+                        <button class="btn btn-outline-dark mt-3 mb-3">Submit</button>
+                    </form>
+                    <hr>
+                    <% } %>
+                        <h2>Reviews</h2>
+                        <div class="review-card">
+                            <% if (data.reviews && data.reviews.length> 0) { %>
+                                <% data.reviews.forEach(review=> { %>
+                                    <div class="review">
+                                        <p class="dateFlex">
+                                            <% const d=new Date(review.createdAt); %>
+                                                <%= d.getDate() + "." + (d.getMonth()+1) + "." + d.getFullYear() %>
+                                        </p>
+
+                                        <p class="reviewUsar"> <strong><i class="fa-solid fa-user"></i></strong>
+                                            <%= review.author.username%>
+
+
+                                        </p>
+
+
+
+
+
+                                        <p class="comment"><strong><i class="fa-solid fa-comment"></i></strong>
+                                            <%= review.comment %>
+                                        </p>
+                                        <p class="stars">
+                                            <% for(let i=1; i<=5; i++) { %>
+                                                <span
+                                                    class="star <%= i <= review.rating ? 'filled' : 'empty' %>">&#9733;</span>
+                                                <% } %>
+                                        </p>
+                                        <% if (currUser && review.author._id.equals(currUser._id)) { %>
+
+                                            <form
+                                                action="/places/<%= data._id %>/reviews/<%= review._id %>?_method=DELETE"
+                                                method="post">
+                                                <button class="btn btn-dark  mb-0">Delete</button>
+                                            </form>
+                                            <% } %>
+                                    </div>
+                                    <% }) %>
+                                        <% } else { %>
+                                            <p>No reviews yet.</p>
+                                            <% } %>
+
+                        </div>
+
+            </div>
+        </div>
+        </div>
+
+    </body>

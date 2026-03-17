@@ -1,0 +1,36 @@
+1.create session and update expires and maxAge , httpOnly
+
+2.use connect-flash and display the successfully add and delete and update the data , if user access the deleted data show a message.
+
+3.autontication / authorization
+
+4.install passport and passport-local,passport-local-mongoose.
+
+5. besic set up for passport.
+
+6.user.register()--> user in sign up route and store data into database.
+
+7. passport.authenticate()--> login user
+ passport.authenticate() middleware invokes req.login() automatically.
+  This function is primarily used when users sign up, 
+  during which req.login() can be invoked to automatically log 
+  in the newly registered user.
+
+8.req.authenticated()--> check user login or not 
+
+9. req.logOut()--> used to logOut user
+
+10.problem>>>after sign up the again login 
+solution>>>> req.login () method in passport.
+
+11.signUp login and logout style 
+
+12.without login if I edit post the server redirect login
+page then after login it reditect home page . why home hame not edit page .
+
+13.create listing owner and new listing owner
+
+14.authorization start 
+
+
+

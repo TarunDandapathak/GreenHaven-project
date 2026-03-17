@@ -1,0 +1,117 @@
+<% layout("/layouts/boilarplate") -%>
+
+    <body>
+
+        <section class="mypagesection">
+            <% if (currUser) { %>
+                <div class="typing-container">
+                    <h1 class="responsive-typewriter">
+                        HI <span class="gradient-text">
+                            <%= currUser.username.split(" ")[0] %> 
+                        </span>, WELCOME!
+                    </h1>
+                </div>
+               
+                <% } %> 
+        </section>
+        <% if (datas.length) { %>
+           
+            <div class=" header-container">
+                                <h3 class="heading-glass">Your Favourite Rooms</h3>
+
+                </div>
+
+                <% } %>
+                    <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+                        <% for(const data of datas) { %>
+                            <div class="card main-card" style="width: 18rem;">
+
+                                <form action="/places/<%=data.place._id %>/cart" method="get">
+                                    <span class="cart-icon">
+                                        <button type="submit">
+                                            <% if (currUser && currUser.cart) { %>
+                                                <% // Check if the place is in the user's cart const
+                                                    inCart=currUser.cart.some(item=>
+                                                    item.place.equals(data.place._id));
+                                                    %>
+
+                                                    <% if (inCart) { %>
+                                                        <i class="fa-solid fa-trash yellow"></i>
+                                                        <% } else { %>
+                                                            <i class="fa-solid fa-trash white"></i>
+                                                            <% } %>
+
+                                                                <% } else { %>
+                                                                    <!-- User not logged in: show default icon -->
+                                                                    <i class="fa-solid fa-cart-arrow-down white"></i>
+                                                                    <% } %>
+                                        </button>
+                                    </span>
+                                </form>
+                                <a href="/places/<%=data.place._id%>">
+                                    <img src="<%= data.place.image.url %>" class="card-img-top" alt="room-image"
+                                        style="height: 20rem;">
+                                    <div class=" card-body">
+                                        <b>
+                                            <p class="card-text mt-2 mb-2">
+                                                <strong>
+                                                    <%=data.place.title%>
+                                                </strong>
+                                            <div><a href="/places/<%=data.place._id %>"
+                                                    class="btn btn-primary mb-2">Book
+                                                    Now</a>
+                                            </div>
+                                            </p>
+
+                                        </b>
+
+                                    </div>
+                                </a>
+                            </div>
+                            <% } %>
+
+
+                                <% if (plc.length) { %>
+                                    
+                                        <h3 class="yourPost heading-glass">Your Posts:</h3>
+                                    
+                                    <% } %>
+
+                                        <% for(const p of plc) { %>
+                                            <div class="card main-card" style="width: 18rem;">
+
+                                                <img src="<%= p.image.url %>" class="card-img-top" alt="room-image"
+                                                    style="height: 20rem;">
+                                                <div class=" card-body">
+                                                    <b>
+                                                        <p class="card-text mt-2 mb-2">
+                                                            <strong>
+                                                                <%=p.title%>
+                                                            </strong>
+                                                        <div class="d-flex gap-5 ">
+                                                            <a href="/places/<%= p._id %>/edit"
+                                                                class="btn btn-dark myProfileEdit"
+                                                                style="color: white;">
+                                                                <i class="fa-solid fa-pen-to-square"></i>Edit</a>
+                                                            <form action="/places/<%= p._id %>/delete?_method=DELETE"
+                                                                method="post" style="display: inline;">
+                                                                <button class="btn btn-danger"><i
+                                                                        class="fa-solid fa-trash-can"></i>Delete</button><br><br>
+                                                            </form>
+                                                        </div>
+                                                        </p>
+
+                                                    </b>
+
+                                                </div>
+
+
+                                            </div>
+                                            <% }%>
+
+
+                    </div>
+
+
+
+    </body>

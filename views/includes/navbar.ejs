@@ -1,0 +1,176 @@
+<style>
+    .btn-outline-success {
+        background-color: #ff385c;
+        color: white;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .btn-outline-success:hover {
+        background-color: #ff385c;
+        color: white;
+        border: none;
+    }
+
+    .btn-outline-success i {
+        display: inline;
+        padding-right: 2px;
+    }
+
+    @media (min-width:1000px) {
+        .offcanvas-end {
+            display: none;
+
+        }
+
+    }
+
+    /* hide mobile search on desktop */
+    .mobile-search {
+        display: none;
+    }
+
+    /* hide desktop search on small screens */
+    @media (max-width: 990px) {
+
+        .navbar form {
+            display: none;
+        }
+
+        .mobile-search {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background: white;
+        }
+
+        .mobile-search form {
+            width: 90%;
+        }
+    }
+
+    .search {
+        width: 27rem;
+    }
+</style>
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/places"><i class=" fa-regular fa-compass"></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="collapse navbar-collapse offcanvas-body" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+
+                    <a class="nav-link" href="/places">Explore</a>
+                    <a class="nav-link" href="/places/new">New Post</a>
+                </div>
+
+                <div class="navbar-nav">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit"><i
+                                class="fa-solid fa-magnifying-glass"></i>Search</button>
+                    </form>
+                </div>
+
+                <div class="navbar-nav">
+
+                    <% if (!currUser) { %>
+                        <a class="nav-link " href="/signup">Sign Up</a>
+                        <a class="nav-link" href="/login"> Login</a>
+                        <% } %>
+
+                            <% if (currUser) { %>
+                                <a class="nav-link" href="/logout">Log Out</a>
+                                <% } %>
+                </div>
+            </div>
+        </div>
+</nav> -->
+
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="/places">
+            <i class="fa-regular fa-compass"></i>
+        </a>
+
+        <!-- Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+            
+        </button>
+
+        <!-- Normal Navbar (Desktop) -->
+        <div class="collapse navbar-collapse">
+
+            <div class="navbar-nav ">
+                <a class="nav-link" href="/places">Explore</a>
+                <a class="nav-link" href="/places/new">New Post</a>
+            </div>
+
+            <form class="d-flex me-3" action="/places/search" method="post">
+                <input class="form-control me-2 search" type="search" placeholder="Search Destination" name="search">
+                <button class="btn btn-outline-success">
+                    <i class="fa-solid fa-magnifying-glass"></i>Search
+                </button>
+            </form>
+
+            <div class="navbar-nav">
+                <% if (!currUser) { %>
+                    <a class="nav-link" href="/signup">Sign Up</a>
+                    <a class="nav-link" href="/login">Login</a>
+                    <% } %>
+
+                        <% if (currUser) { %>
+                            <a class="nav-link hide" href="/profile">My Profile</a>
+                            <a class="nav-link" href="/logout">Log Out</a>
+                            <% } %>
+            </div>
+
+        </div>
+
+        <!-- Offcanvas Menu (Mobile) -->
+        <div class="offcanvas offcanvas-end" id="offcanvasNavbar">
+            <div class="offcanvas-header">
+                <h5>Menu</h5>
+                <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <div class="navbar-nav">
+                    <a class="nav-link hide" href="/places">Explore</a>
+                    <a class="nav-link hide" href="/places/new">New Post</a>
+
+                    <% if (!currUser) { %>
+                        <a class="nav-link hide " href="/signup">Sign Up</a>
+                        <a class="nav-link hide" href="/login">Login</a>
+                        <% } %>
+
+                            <% if (currUser) { %>
+                                <a class="nav-link hide" href="/profile">My Profile</a>
+                                <a class="nav-link" href="/logout">Log Out</a>
+                                <% } %>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+<!-- <div class="mobile-search">
+    <form class="d-flex justify-content-center" action="/places/search" method="post">
+        <input class="form-control me-2 search" type="search" placeholder="Search destinations" name="search">
+        <button class="btn btn-outline-success">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </form>
+</div> -->

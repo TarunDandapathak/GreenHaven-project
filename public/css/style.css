@@ -1,0 +1,402 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    font-family: 'Inter', sans-serif;
+    
+}
+
+.container-lg {
+    flex: 1;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar {
+    height: 5rem;
+
+}
+
+.fa-regular {
+    color: #ff385c;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: rgb(14 11 11 / 97%) !important;
+}
+
+.navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* footer  */
+
+.f-info-condition>a {
+    text-decoration: none;
+    color: black;
+
+}
+
+.f-info-condition>p {
+    display: inline;
+}
+
+.f-info-condition {
+    margin: 3px;
+}
+
+.f-info-condition>a:hover {
+    text-decoration: underline;
+}
+
+.f-info-condition>a {
+    width: 100%;
+
+}
+
+.f-info {
+    display: flex;
+    background-color: #ebebeb;
+    height: 10rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* line-height: 2rem; */
+
+}
+
+.fa-brands {
+    font-size: 2rem;
+    margin-top: 12px;
+}
+
+.fa-solid {
+    margin-right: 3px;
+}
+
+/* index.ejs*/
+.card {
+    border: none;
+    margin: 0.1rem;
+}
+
+.card-img-top {
+    border-radius: 1rem;
+    width: 100% !important;
+    object-fit: cover !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card-body p {
+    margin: 0;
+}
+
+.row {
+    justify-content: center;
+}
+
+.card a {
+    text-decoration: none;
+    color: black;
+}
+
+.main-card:hover {
+    transform: scale(1.01, 1.01);
+    opacity: 0.9;
+}
+
+/* add new listening */
+/* form {
+    margin-left: 6rem;
+    margin-right: 6rem;
+
+} */
+
+/* alert-success */
+.alert {
+
+    position: fixed;
+    top: 89%;
+    width: 22rem;
+    min-height: 3.5rem;
+    right: 0.8rem;
+    z-index: 7;
+}
+
+/* show.ejs */
+.card-img-top {
+    max-height: 20rem;
+}
+
+/* navBar  */
+@media (max-width: 1000px) {
+
+    .navbar-collapse {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 3rem;
+        top: 6rem;
+
+
+
+    }
+}
+
+.star.filled {
+    color: #ffc107;
+    /* Gold/Yellow */
+}
+
+.star.empty {
+    color: #e4e5e9;
+    /* Light Grey */
+}
+
+/* show.ejs .date input  */
+.date {
+    border: 2px solid black;
+    padding: 0 1rem;
+    border-radius: 5px;
+    margin-right: 1rem;
+
+}
+
+@media (min-width:1399) {
+    .date-btn {
+        /* position: absolute;
+        top: 40rem;
+        left: 1rem; */
+        margin-top: 10px;
+    }
+}
+
+.card-img-top {
+    min-height: 21rem;
+}
+
+.show-img {
+    min-height: 28rem;
+}
+
+.yourPost {
+    width: 100%;
+    text-align: center;
+}
+
+/* typing style  */
+.mypagesection {
+    height: 4rem;
+    background-color: #000000e7;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myProfileEdit {
+    height: 2.5rem;
+}
+
+
+/* dkdk */
+.responsive-typewriter {
+    /* clamp(min, preferred, max) */
+    font-size: clamp(1rem, 5vw, 4rem);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 900;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid var(--cursor-color);
+    width: 0;
+
+    /* CHANGED: Added 'infinite' and 'alternate' */
+    /* This will type out and then erase back to 0 in a loop */
+    animation:
+        typing 3s steps(30) infinite alternate,
+        blink 0.8s infinite;
+}
+
+/* Updated Keyframes for a smoother pause at the end */
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+
+    80%,
+    100% {
+        width: 100%;
+    }
+
+    /* Stays typed for a moment before erasing */
+}
+
+/* paragraph style  */
+.header-container {
+    display: flex;
+    justify-content: center;
+    /* Centers on mobile */
+    padding: 20px;
+}
+
+.heading-glass {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #2c3e50;
+}
+
+.review-card {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+}
+
+.review {
+    border: 3px solid black;
+    max-width: 13rem;
+    padding: 7px;
+    border-radius: 7px;
+    margin-bottom: 5px;
+    min-width: 16rem;
+    position: relative;
+    background-color: #00000011;
+}
+
+.comment {
+    /* max-width: 2rem; */
+}
+
+p {
+    margin-bottom: 8px !important;
+}
+
+.stars {
+    font-size: 2rem;
+}
+
+.dateFlex {
+    position: absolute;
+    right: 3px;
+}
+
+.reviewUsar {}
+
+/* .date-btn {
+    margin-top: -5px;
+} */
+
+/* pay button 
+  */
+/* Target the button inside your specific form */
+form[action="/roombook/pay"] .btn {
+    background-color: #2563eb;
+    /* A nice royal blue */
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Add interaction on hover */
+form[action="/roombook/pay"] .btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+    /* Slight lift */
+}
+
+/* Feedback when clicked */
+form[action="/roombook/pay"] .btn:active {
+    transform: translateY(0);
+}
+
+/* pay.ejs  */
+.booking-card {
+    max-width: 450px;
+    margin: 40px auto;
+    /* Centers the card horizontally */
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.booking-card:hover {
+    transform: translateY(-5px);
+    /* Subtle lift on hover */
+}
+
+/* Success Icon */
+.icon {
+    font-size: 40px;
+    color: #28a745;
+    background: #eafaf1;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+/* Title */
+.booking-card h1 {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* The Message/Date Area */
+.date-highlight {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #f0f7ff;
+    color: #0056b3;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 1px dashed #b8daff;
+    margin: 10px 0;
+}
+
+/* Footer Text */
+.thank-you-text {
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin-top: 25px;
+    line-height: 1.5;
+}

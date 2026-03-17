@@ -1,0 +1,49 @@
+<mxfile host="65bd71144e">
+    <diagram id="pO6q04U2Av8lq_CbH_JO" name="Page-1">
+        <mxGraphModel dx="810" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="10" style="edgeStyle=none;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="2" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="250" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Basic Setup&lt;/h1&gt;&lt;p&gt;express,mongoose,ejs,connect database with website.&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;labelBorderColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="60" width="180" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=none;html=1;exitX=0.806;exitY=0.417;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="11" target="12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Models&lt;/h1&gt;&lt;p&gt;placeSchema and model,&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;labelBackgroundColor=none;labelBorderColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="245" y="70" width="180" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" style="edgeStyle=none;html=1;" edge="1" parent="1" target="17">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="610" y="115" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Roution&lt;/h1&gt;&lt;p&gt;&amp;nbsp;index-get requiest , /places&lt;/p&gt;&lt;p&gt;&amp;nbsp;show-get , /place/:id&lt;/p&gt;&lt;p&gt;&amp;nbsp;create -get and post ,/places/new&lt;/p&gt;&lt;p&gt;&amp;nbsp;edit-get and put ,/places/:id/edit&lt;/p&gt;&lt;p&gt;&amp;nbsp;delete-delete /places/:id/delete&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;labelBorderColor=default;labelBackgroundColor=none;textShadow=0;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="60" width="190" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="19">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="750" y="180" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&amp;nbsp;Style&lt;/h1&gt;&lt;p&gt;navbar ,footer ,boilarplate code, index page ,edit page ,show page.&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;labelBorderColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="660" y="80" width="180" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="19" target="21">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;error handeler&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/h1&gt;&lt;p&gt;Create own errer hendeler ,&lt;/p&gt;&lt;p&gt;&amp;nbsp;try-catch ,&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;labelBorderColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="320" width="230" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;schema validation&lt;/h1&gt;&lt;p&gt;client side validation(reduired in form) and server side validation (joi package).&amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;labelBorderColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="320" width="270" height="120" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
