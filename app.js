@@ -101,6 +101,9 @@ app.use("/places", placeRoute);
 app.use("/places/:id/reviews", reviewRoute);
 app.use("/", userRoute);
 app.use("/", profile);
+app.get("/",(req,res)=>{
+    res.redirect("/places");
+});
 
 
 
