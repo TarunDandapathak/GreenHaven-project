@@ -103,9 +103,11 @@ app.use("/", userRoute);
 app.use("/", profile);
 
 
-app.all("*", (req, res, next) => {
+
+app.use((err, req, res, next) => {
     next(new ExpressError(404, "Page Not Found"));
-});
+
+});;
 
 app.use((err, req, res, next) => {
     console.log(err);
